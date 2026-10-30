@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "X (Twitter) フォロー中＆片思い一括CSV出力ツール",
+  "version": "1.0.0",
+  "description": "X(旧Twitter)のフォロー中リストを自動スクロールで一括取得し、表示名・ユーザーID・フォローバック有無をCSVで出力します。",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://x.com/*",
+    "https://twitter.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "X フォロー中一括CSV出力"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://x.com/*",
+        "https://twitter.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
